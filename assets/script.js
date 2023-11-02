@@ -12,6 +12,29 @@ const hour17 = $('#17');
 
 var currentHour = parseInt(dayjs().format('H'));
 
+// All text blocks
+const hourElement = [hour9, hour10, hour11, hour12, hour13, hour14, hour15, hour16, hour17];
+
+const textBlock9 = $('#textBlock');
+
+// button Elements
+const button9 = document.getElementById("button9");
+const button10 = document.getElementById("button10");
+const button11 = document.getElementById("button11");
+const button12 = document.getElementById("button12");
+const button13 = document.getElementById("button13");
+const button14 = document.getElementById("button14");
+const button15 = document.getElementById("button15");
+const button16 = document.getElementById("button16");
+const button17 = document.getElementById("button17");
+
+// All buttons
+const buttons = [button9, button10, button11, button12, button13, button14, button15, button16, button17];
+
+
+// console.log(hour9[0].children[1].value);
+// console.log(JSON.stringify(hour9));
+
 const nine = parseInt(hour9[0].id);
 const ten = parseInt(hour10[0].id);
 const eleven = parseInt(hour11[0].id);
@@ -21,6 +44,49 @@ const two = parseInt(hour14[0].id);
 const three = parseInt(hour15[0].id);
 const four = parseInt(hour16[0].id);
 const five = parseInt(hour17[0].id);
+
+// All element Ids
+const hourId = [nine, ten, eleven, twelve, one, two, three, four, five];
+
+
+
+const specificTextArea = [hour9[0].children[1], hour10[0].children[1], hour11[0].children[1]];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const userSavedEvents = JSON.parse(localStorage.getItem('userSavedEvents')) || [];
+
+
+
+// Adds items to local storage
+// button9.addEventListener('click', (e) => {
+//   i = 0
+
+//   const savedEvents = {
+//     timeEvent: specificTextArea[0].value,
+//     time: hourId[0]
+//   };
+//   userSavedEvents.push(savedEvents);
+//   // console.log(hour9[0].children[1].value);
+//   // console.log(hour9[0].id);
+//   localStorage.setItem('userSavedEvents', JSON.stringify(userSavedEvents));
+
+  
+
+
+
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
@@ -33,111 +99,49 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
+
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+
+
+
+
+
+
   // Displays the date at th e top of the page
   var date = dayjs().format('dddd, MMMM YYYY');
   currentDay.text(date);
 
+  // adds buttons to each
+  for (n = 0; n < buttons.length; n++) {
+    buttons[n].addEventListener('click', function() {
+      console.log("clicked");
+
+    
+    })
+  }
+
+  
+
+
+
+
 
 
   // Updates the hours to display correct color
-
-    // 9am
-    if (nine < currentHour) {
-        hour9.addClass('past');
-      } else if (nine === currentHour) {
-        hour9.addClass('present');
-      } else {
-        hour9.addClass('future');
-      }
-
-    // 10am
-    if (ten < currentHour) {
-        hour10.addClass('past');
-      } else if (ten === currentHour) {
-        hour10.addClass('present');
-      } else {
-        hour10.addClass('future');
-      }
-
-    // 11am
-    if (eleven < currentHour) {
-        hour11.addClass('past');
-      } else if (eleven === currentHour) {
-        hour11.addClass('present');
-      } else {
-        hour11.addClass('future');
-      }
-
-    // 12pm
-    if (twelve < currentHour) {
-        hour12.addClass('past');
-      } else if (twelve === currentHour) {
-        hour12.addClass('present');
-      } else {
-        hour12.addClass('future');
-      }
-
-    // 1pm
-    if (one < currentHour) {
-        hour13.addClass('past');
-      } else if (one === currentHour) {
-        hour13.addClass('present');
-      } else {
-        hour13.addClass('future');
-      }
-
-    // 2pm
-    if (two < currentHour) {
-        hour14.addClass('past');
-      } else if (two === currentHour) {
-        hour14.addClass('present');
-      } else {
-        hour14.addClass('future');
-      }
-
-    // 3pm
-    if (three < currentHour) {
-        hour15.addClass('past');
-      } else if (three === currentHour) {
-        hour15.addClass('present');
-      } else {
-        hour15.addClass('future');
-      }
-
-    // 4pm
-    if (four < currentHour) {
-        hour16.addClass('past');
-      } else if (four === currentHour) {
-        hour16.addClass('present');
-      } else {
-        hour16.addClass('future');
-      }
-
-    // 5pm
-    if (five < currentHour) {
-        hour17.addClass('past');
-      } else if (five === currentHour) {
-        hour17.addClass('present');
-      } else {
-        hour17.addClass('future');
-      }
+    for (i = 0; i < hourElement.length; i++) {
+      if (hourId[i] < currentHour) {
+          hourElement[i].addClass('past');
+        } else if (hourId[i] === currentHour) {
+          hourElement[i].addClass('present');
+        } else {
+          hourElement[i].addClass('future');
+        }
+    }
+    
 });
 
-
-
-// console.log(nine);
-console.log(nine);
-console.log(currentHour);
-console.log(nine < currentHour);
-// console.log(nine < currentHour);
 
