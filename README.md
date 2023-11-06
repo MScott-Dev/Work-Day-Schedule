@@ -18,7 +18,7 @@ Enter different events you have for the day into the current time slot. The back
 
 1. A web browser
 2. Internet
-3. <a href="[https://mscott-dev.github.io/Work-Day-Schedule/]" alt="Link to the Schedule">A link to the webpage</a>
+3. <a href="https://mscott-dev.github.io/Work-Day-Schedule/" alt="Link to the Schedule">A link to the webpage</a>
 
 ## Installing
 N/A
